@@ -1,0 +1,9 @@
+name: Action plan
+on:
+ workflow_dispatch: 
+jobs:
+ my_first_job:
+ steps:
+   -name: Greeting 
+   run: eco "hello world"cancel-timeout-minutes: 
+   
