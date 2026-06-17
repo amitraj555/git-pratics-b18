@@ -1,14 +1,20 @@
+name: My Workflow
+
+on:
+  push:
+
 jobs:
   my_first_job:
     name: first job
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
 
     steps:
       - run: echo "my first job ran successful"
-      my_second_job:
-  name: second job
-  needs: my_first_job
-  runs-on: ubuntu-slim
 
-  steps:
-    - run: echo "my second job ran successful"
+  my_second_job:
+    name: second job
+    needs: my_first_job
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "my second job ran successful"
