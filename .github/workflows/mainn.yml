@@ -1,0 +1,44 @@
+name: Terraform GitHub Actions Practice
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  terraform_init_plan:
+    name: Terraform Init and Plan
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Step 1: Checkout Repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Install Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: latest
+
+      # Step 3: Check Terraform Version
+      - name: Terraform Version
+        run: terraform version
+
+      # Step 4: Initialize Terraform
+      - name: Terraform Init
+        run: terraform init
+
+      # Step 5: Validate Terraform Code
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Step 6: Terraform Plan
+      - name: Terraform Plan
+        run: terraform plan
